@@ -1,10 +1,10 @@
-/* VARIABLES PREMIUM (NUEVA COLORIMETRÍA: OCÉANO Y CORAL) */
+/* VARIABLES PREMIUM (OCÉANO Y CORAL) */
 :root {
-    --brand-red: #F97316; /* Naranja Coral */
-    --brand-blue: #06B6D4; /* Cian vibrante */
+    --brand-red: #F97316; 
+    --brand-blue: #06B6D4; 
     --primary: #F97316;
     --secondary: #06B6D4;
-    --dark-bg: #0F172A; /* Azul marino profundo */
+    --dark-bg: #0F172A; 
     
     --text-main: #1E293B; 
     --text-light: #64748B;
@@ -20,17 +20,15 @@ a { text-decoration: none; transition: 0.3s ease; }
 .section-p { padding: 120px 0; }
 .text-center { text-align: center; }
 
-/* HEADER PREMIUM Y LOGO */
+/* HEADER Y LOGO AUMENTADO */
 header { 
     background: rgba(255, 255, 255, 0.85); 
     backdrop-filter: blur(15px); 
     position: fixed; top: 0; width: 100%; z-index: 1000; 
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-/* Aumentamos la altura de la barra a 100px para que respire */
-.nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 100px; }
-/* Aumentamos el tamaño del logo a 85px */
-.logo img { height: 85px; object-fit: contain; }
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 100px; } /* Altura ampliada */
+.logo img { height: 85px; object-fit: contain; } /* Logo más grande */
 .nav-links { display: flex; gap: 35px; list-style: none; font-weight: 600; color: #4b5563; }
 .nav-links a:hover { color: var(--brand-red); }
 
@@ -42,15 +40,18 @@ header {
 }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(249, 115, 22, 0.4); }
 
-/* BURBUJAS INTERACTIVAS (PARALLAX CSS) */
-.blob { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.5; animation: floatBlob 10s infinite alternate ease-in-out; }
-.blob-1 { width: 400px; height: 400px; background: rgba(6, 182, 212, 0.15); top: 10%; left: -100px; }
-.blob-2 { width: 350px; height: 350px; background: rgba(249, 115, 22, 0.1); bottom: 10%; right: -50px; animation-delay: -5s; }
-
-@keyframes floatBlob {
-    0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(50px) scale(1.1); }
+/* --- NUEVAS BURBUJAS PARALLAX (AL SCROLLEAR) --- */
+.scroll-bubble {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: -2; /* Se quedan en el fondo siempre */
+    pointer-events: none; /* Evita que bloqueen clics en la web */
+    transition: transform 0.1s ease-out; /* Suaviza el movimiento al bajar */
 }
+.bubble-a { width: 400px; height: 400px; background: rgba(6, 182, 212, 0.2); top: 10%; left: -100px; }
+.bubble-b { width: 350px; height: 350px; background: rgba(249, 115, 22, 0.15); top: 50%; right: -50px; }
+.bubble-c { width: 500px; height: 500px; background: rgba(6, 182, 212, 0.1); bottom: -10%; left: 30%; }
 
 /* --- HERO --- */
 .hero { 
@@ -85,12 +86,12 @@ header {
     box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5); letter-spacing: 1px; 
 }
 
-/* --- SECCIÓN SERVICIOS --- */
-.services-section { background-color: transparent; } 
+/* --- SECCIÓN SERVICIOS Y TARJETAS --- */
+.services-section { background-color: transparent; position: relative; z-index: 5; } 
 .section-title { font-size: 3rem; font-weight: 800; color: #111827; margin-bottom: 10px; }
 .section-subtitle { font-size: 1.2rem; color: var(--text-light); margin-bottom: 60px; }
 
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; position: relative; z-index: 5;}
 
 .service-card { 
     background: white; border-radius: 30px; padding: 50px 35px; 
@@ -106,11 +107,12 @@ header {
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: #64748B; font-size: 1.05rem; line-height: 1.7; }
 
-/* --- WHATSAPP FLOTANTE (ESTILO ETERIO PERFECTO) --- */
+/* --- WHATSAPP FLOTANTE CORREGIDO --- */
 .whatsapp-float { 
     position: fixed; bottom: 30px; right: 30px; 
     background-color: #25D366; color: white; 
-    width: 65px; height: 65px; border-radius: 50%; 
+    width: 70px; height: 70px; /* Expandido para evitar cortes */
+    border-radius: 50%; 
     display: flex; align-items: center; justify-content: center; 
     z-index: 1000; 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -119,8 +121,11 @@ header {
 }
 
 .whatsapp-float svg { 
-    width: 35px; height: 35px; fill: white; 
+    width: 32px; height: 32px; /* Ligeramente más pequeño para que respire */
+    fill: white; 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    margin-top: -2px;
+    margin-left: 1px;
 }
 
 .whatsapp-float:hover { 
