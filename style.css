@@ -16,7 +16,6 @@ a { text-decoration: none; transition: 0.3s ease; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
 .section-p { padding: 100px 0; }
 .text-center { text-align: center; }
-.content-layer { position: relative; z-index: 10; }
 
 /* HEADER */
 header { 
@@ -30,38 +29,58 @@ header {
 
 /* BOTONES */
 .btn-primary { 
-    background: linear-gradient(135deg, var(--brand-red), #ea580c); 
-    color: white; padding: 12px 30px; border-radius: 50px; 
-    font-weight: 700; box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3); transition: 0.3s; 
+    background: linear-gradient(135deg, var(--brand-red), #ea580c); color: white; padding: 12px 30px; 
+    border-radius: 50px; font-weight: 700; box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3); transition: 0.3s; display: inline-block;
 }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(249, 115, 22, 0.4); }
 
-/* --- BURBUJAS DE CRISTAL (SEPARADAS) --- */
-.scroll-bubble {
-    position: fixed; 
-    border-radius: 50%; 
-    border: 2px solid rgba(255, 255, 255, 0.25); /* El aro blanco que pediste */
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-    box-shadow: inset 0 0 15px rgba(255,255,255,0.1); /* Brillo interno */
-    z-index: 1; pointer-events: none; 
-    transition: transform 0.1s linear; /* Movimiento fluido al bajar el dedo */
-}
-/* Tamaños y ubicaciones estratégicas para que no se choquen */
-.bubble-a { width: 90px; height: 90px; top: 15%; left: 10%; }
-.bubble-b { width: 45px; height: 45px; top: 60%; left: 22%; }
-.bubble-c { width: 140px; height: 140px; top: 85%; left: 75%; }
-.bubble-d { width: 60px; height: 60px; top: 35%; left: 85%; }
-.bubble-e { width: 30px; height: 30px; top: 50%; left: 50%; }
-.bubble-f { width: 110px; height: 110px; top: 90%; left: 12%; }
-.bubble-g { width: 55px; height: 55px; top: 20%; left: 60%; }
-.bubble-h { width: 75px; height: 75px; top: 75%; left: 90%; }
 
-/* --- HERO --- */
+/* =========================================
+   EL SECRETO DE LAS CAPAS (Z-INDEX) 
+   ========================================= */
+/* Capa -2: Fondo Difuminado Artístico (Hasta el fondo) */
+.blob { position: fixed; border-radius: 50%; filter: blur(80px); z-index: 1; opacity: 0.3; pointer-events: none; }
+.blob-1 { width: 400px; height: 400px; background: var(--brand-blue); top: 10%; left: -100px; }
+.blob-2 { width: 350px; height: 350px; background: var(--brand-red); bottom: 10%; right: -50px; }
+
+/* Capa 2: Imagen Oscura del Hero */
+.hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop'); 
+    background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* Capa 3: Burbujas de Cristal (Pasan SOBRE el fondo oscuro, pero DEBAJO de las tarjetas blancas) */
+.scroll-bubble {
+    position: fixed; border-radius: 50%; 
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    box-shadow: inset 0 0 15px rgba(255,255,255,0.15);
+    backdrop-filter: blur(3px); 
+    z-index: 3; pointer-events: none; will-change: transform;
+}
+.scroll-bubble.coral { border-color: rgba(249, 115, 22, 0.3); }
+
+/* Tamaños Base (Para PC) */
+.bubble-a { width: 100px; height: 100px; top: 20%; left: 8%; }
+.bubble-b { width: 50px; height: 50px; top: 60%; left: 22%; }
+.bubble-c { width: 140px; height: 140px; top: 85%; left: 75%; }
+.bubble-d { width: 70px; height: 70px; top: 30%; left: 85%; }
+.bubble-e { width: 35px; height: 35px; top: 50%; left: 50%; }
+.bubble-f { width: 110px; height: 110px; top: 90%; left: 15%; }
+.bubble-g { width: 60px; height: 60px; top: 15%; left: 65%; }
+.bubble-h { width: 80px; height: 80px; top: 70%; left: 90%; }
+
+/* Capa 10: Contenido (Textos y Tarjetas) NUNCA se taparán */
+.content-layer { position: relative; z-index: 10; }
+.wave-divider { position: absolute; bottom: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 4; }
+.wave-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 140px; }
+
+
+/* --- HERO ESTRUCTURA --- */
 .hero { 
-    position: relative; min-height: 100vh; z-index: 10;
-    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop'); 
-    background-size: cover; background-position: center; background-attachment: fixed; 
-    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 80px; overflow: hidden;
+    position: relative; min-height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 80px; 
 }
 .hero h1 { 
     font-size: 5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 900; 
@@ -84,12 +103,6 @@ header {
 }
 .btn-main:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5); letter-spacing: 1px; }
 
-/* --- DIVISIÓN ONDULADA MULTICAPA (WAVE DIVIDER) ESTILO ETERIO --- */
-.wave-divider {
-    position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 10;
-}
-.wave-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 100px; }
-
 /* --- SERVICIOS --- */
 .section-title { font-size: 2.8rem; font-weight: 800; color: #0F172A; margin-bottom: 15px; }
 .section-subtitle { font-size: 1.2rem; color: var(--text-light); margin-bottom: 60px; font-weight: 400; }
@@ -97,9 +110,9 @@ header {
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
 .service-card { 
-    background: rgba(255, 255, 255, 0.95); border-radius: 30px; padding: 50px 35px; 
+    background: rgba(255, 255, 255, 0.98); border-radius: 30px; padding: 50px 35px; 
     box-shadow: var(--shadow-card); position: relative; overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.02); transition: all 0.5s ease; backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.02); transition: all 0.5s ease; z-index: 10;
 }
 .service-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(6, 182, 212, 0.15); border-bottom: 4px solid var(--brand-blue); }
 .service-card:hover:nth-child(even) { border-bottom: 4px solid var(--brand-red); box-shadow: 0 25px 50px rgba(249, 115, 22, 0.15); }
@@ -109,43 +122,23 @@ header {
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: var(--text-light); font-size: 1.05rem; line-height: 1.7; }
 
-/* --- TARJETAS DESPLEGABLES INTERACTIVAS (ACORDEÓN) --- */
+/* --- TARJETAS DESPLEGABLES --- */
 .mystery-card {
-    background: white; border-radius: 20px; margin-bottom: 20px;
-    box-shadow: var(--shadow-card); overflow: hidden;
-    border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: var(--shadow-card); overflow: hidden;
+    border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10; position: relative;
 }
-/* Efecto de deslizar a la derecha al pasar el mouse */
 .mystery-card:hover { transform: translateX(10px); box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2); }
-/* Cambia el color de la línea al abrirse */
 .mystery-card[open] { border-left-color: var(--brand-red); background: #fffcfb; }
-
-.mystery-card summary {
-    padding: 25px; font-size: 1.3rem; font-weight: 800; color: var(--dark-bg);
-    cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
-}
-.mystery-card summary::-webkit-details-marker { display: none; } /* Oculta la flechita fea por defecto */
-
+.mystery-card summary { padding: 25px; font-size: 1.3rem; font-weight: 800; color: var(--dark-bg); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.mystery-card summary::-webkit-details-marker { display: none; }
 .icon-plus { color: var(--brand-red); font-size: 1.5rem; transition: transform 0.3s ease; }
-.mystery-card[open] summary .icon-plus { transform: rotate(45deg); color: var(--text-light); } /* Se vuelve una 'X' al abrir */
+.mystery-card[open] summary .icon-plus { transform: rotate(45deg); color: var(--text-light); } 
+.card-content { padding: 0 25px 25px; color: var(--text-light); font-size: 1.1rem; line-height: 1.7; text-align: left; animation: fadeInDown 0.5s ease-out; }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Animación de fade-in al abrir el texto */
-.card-content { 
-    padding: 0 25px 25px; color: var(--text-light); font-size: 1.1rem; line-height: 1.7; text-align: left; 
-    animation: fadeInDown 0.5s ease-out;
-}
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* --- FOOTER Y WHATSAPP --- */
+.footer-legal { background-color: var(--dark-bg); color: white; padding: 40px 20px; position: relative; z-index: 20; }
 
-/* --- FOOTER / LICENCIA --- */
-.footer-legal {
-    background-color: var(--dark-bg); color: white;
-    padding: 40px 20px; position: relative; z-index: 10;
-}
-
-/* --- WHATSAPP FLOTANTE --- */
 .whatsapp-float { 
     position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; 
     width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -157,5 +150,22 @@ header {
 .whatsapp-float:hover svg { transform: scale(1.1) rotate(12deg); }
 @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) { .hero h1 { font-size: 3rem; } .nav-links { display: none; } .services-grid { grid-template-columns: 1fr; } }
+/* =========================================
+   OPTIMIZACIÓN ESTRICTA PARA CELULARES
+   ========================================= */
+@media (max-width: 768px) { 
+    .hero h1 { font-size: 3rem; } 
+    .nav-links { display: none; } 
+    .services-grid { grid-template-columns: 1fr; } 
+    
+    /* El secreto para que no se vean inmensas en el celular */
+    .scroll-bubble { border-width: 1px; }
+    .bubble-a { width: 50px; height: 50px; top: 15%; left: 5%; }
+    .bubble-b { width: 30px; height: 30px; top: 55%; left: 15%; }
+    .bubble-c { width: 70px; height: 70px; top: 75%; left: 75%; }
+    .bubble-d { width: 40px; height: 40px; top: 25%; left: 80%; }
+    .bubble-e { width: 20px; height: 20px; top: 45%; left: 45%; }
+    .bubble-f { width: 60px; height: 60px; top: 85%; left: 5%; }
+    .bubble-g { width: 35px; height: 35px; top: 10%; left: 60%; }
+    .bubble-h { width: 45px; height: 45px; top: 65%; left: 85%; }
+}
