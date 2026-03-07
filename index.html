@@ -13,6 +13,9 @@
     <div class="scroll-bubble bubble-a"></div>
     <div class="scroll-bubble bubble-b"></div>
     <div class="scroll-bubble bubble-c"></div>
+    <div class="scroll-bubble bubble-d"></div>
+    <div class="scroll-bubble bubble-e"></div>
+    <div class="scroll-bubble bubble-f"></div>
 
     <header data-aos="fade-down" data-aos-duration="800">
         <div class="container nav-wrapper">
@@ -25,7 +28,7 @@
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="testimonios.html">Testimonios</a></li>
             </ul>
-            <a href="https://wa.me/50769932661" class="btn-primary" target="_blank">Agenda tu Cita</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Panamá" class="btn-primary" target="_blank">Ubícanos (Mapa)</a>
         </div>
     </header>
 
@@ -108,12 +111,14 @@
     <script>
         AOS.init({ once: false, offset: 100, duration: 800 });
         
-        /* MAGIA PARALLAX BURBUJAS */
         window.addEventListener('scroll', () => {
             let scrollPosition = window.scrollY;
             document.querySelector('.bubble-a').style.transform = `translateY(-${scrollPosition * 0.5}px)`;
             document.querySelector('.bubble-b').style.transform = `translateY(-${scrollPosition * 0.3}px)`;
             document.querySelector('.bubble-c').style.transform = `translateY(-${scrollPosition * 0.7}px)`;
+            document.querySelector('.bubble-d').style.transform = `translateY(-${scrollPosition * 0.4}px)`;
+            document.querySelector('.bubble-e').style.transform = `translateY(-${scrollPosition * 0.8}px)`;
+            document.querySelector('.bubble-f').style.transform = `translateY(-${scrollPosition * 0.2}px)`;
         });
     </script>
 </body>
