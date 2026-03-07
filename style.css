@@ -16,7 +16,7 @@ a { text-decoration: none; transition: 0.3s ease; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
 .section-p { padding: 100px 0; }
 .text-center { text-align: center; }
-.content-layer { position: relative; z-index: 10; } 
+.content-layer { position: relative; z-index: 10; }
 
 /* HEADER */
 header { 
@@ -36,39 +36,30 @@ header {
 }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(249, 115, 22, 0.4); }
 
-/* --- BURBUJAS DE ACUARIO REAL (ANIMACIÓN AUTÓNOMA CSS) --- */
-.bubble {
-    position: fixed; bottom: -150px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Aro tipo burbuja */
-    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
-    z-index: 1; pointer-events: none;
-    animation: rise infinite ease-in;
+/* --- BURBUJAS TIPO CRISTAL (SEPARADAS) --- */
+.scroll-bubble {
+    position: fixed; 
+    border-radius: 50%; 
+    border: 2px solid rgba(255, 255, 255, 0.25); /* El aro blanco que pediste */
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    box-shadow: inset 0 0 15px rgba(255,255,255,0.1); /* Brillo interno */
+    z-index: 1; pointer-events: none; 
+    transition: transform 0.1s linear; /* Movimiento fluido al bajar el dedo */
 }
-
-/* Distribución para que no se apiñen */
-.bubble-1 { width: 60px; height: 60px; left: 10%; animation-duration: 9s; }
-.bubble-2 { width: 30px; height: 30px; left: 25%; animation-duration: 6s; animation-delay: 1s; }
-.bubble-3 { width: 80px; height: 80px; left: 40%; animation-duration: 12s; animation-delay: 3s; }
-.bubble-4 { width: 40px; height: 40px; left: 60%; animation-duration: 8s; animation-delay: 0.5s; }
-.bubble-5 { width: 90px; height: 90px; left: 75%; animation-duration: 14s; animation-delay: 2s; }
-.bubble-6 { width: 35px; height: 35px; left: 90%; animation-duration: 7s; animation-delay: 1.5s; }
-.bubble-7 { width: 50px; height: 50px; left: 5%; animation-duration: 10s; animation-delay: 4s; }
-.bubble-8 { width: 25px; height: 25px; left: 85%; animation-duration: 5s; animation-delay: 3.5s; }
-
-/* La magia para que suban y se muevan solas */
-@keyframes rise {
-    0% { bottom: -150px; transform: translateX(0); opacity: 0; }
-    15% { opacity: 1; }
-    50% { transform: translateX(30px); } /* Se balancean a la derecha */
-    85% { opacity: 1; }
-    100% { bottom: 110vh; transform: translateX(-30px); opacity: 0; } /* Se balancean a la izquierda y desaparecen arriba */
-}
+/* Tamaños y ubicaciones estratégicas para que no se choquen */
+.bubble-a { width: 90px; height: 90px; top: 15%; left: 10%; }
+.bubble-b { width: 45px; height: 45px; top: 60%; left: 22%; }
+.bubble-c { width: 140px; height: 140px; top: 85%; left: 75%; }
+.bubble-d { width: 60px; height: 60px; top: 35%; left: 85%; }
+.bubble-e { width: 30px; height: 30px; top: 50%; left: 50%; }
+.bubble-f { width: 110px; height: 110px; top: 90%; left: 12%; }
+.bubble-g { width: 55px; height: 55px; top: 20%; left: 60%; }
+.bubble-h { width: 75px; height: 75px; top: 75%; left: 90%; }
 
 /* --- HERO --- */
 .hero { 
     position: relative; min-height: 100vh; z-index: 10;
-    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop'); 
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop'); 
     background-size: cover; background-position: center; background-attachment: fixed; 
     display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 80px; overflow: hidden;
 }
@@ -93,17 +84,15 @@ header {
 }
 .btn-main:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5); letter-spacing: 1px; }
 
-/* --- DIVISIÓN ONDULADA (WAVE DIVIDER) ESTILO ETERIO --- */
-.wave-divider {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    overflow: hidden; line-height: 0;
+/* --- SEPARADOR DE OLA (WAVE DIVIDER) --- */
+.custom-shape-divider-bottom {
+    position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0;
+    transform: rotate(180deg); /* Volteamos la ola para que apunte hacia el Hero */
 }
-.wave-divider svg {
-    position: relative; display: block; width: calc(100% + 1.3px); height: 90px;
+.custom-shape-divider-bottom svg {
+    position: relative; display: block; width: calc(130% + 1.3px); height: 110px;
 }
-.wave-divider path {
-    fill: var(--bg-soft); /* El mismo color del fondo de abajo para conectar perfecto */
-}
+.custom-shape-divider-bottom .shape-fill { fill: var(--bg-soft); }
 
 /* --- SERVICIOS --- */
 .section-title { font-size: 2.8rem; font-weight: 800; color: #0F172A; margin-bottom: 15px; }
@@ -124,10 +113,9 @@ header {
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: var(--text-light); font-size: 1.05rem; line-height: 1.7; }
 
-/* --- TARJETAS DESPLEGABLES MEJORADAS --- */
+/* --- TARJETAS DESPLEGABLES --- */
 .mystery-card {
-    background: white; border-radius: 20px; margin-bottom: 20px;
-    box-shadow: var(--shadow-card); overflow: hidden;
+    background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: var(--shadow-card); overflow: hidden;
     border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .mystery-card:hover { transform: translateX(10px); box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2); }
@@ -138,7 +126,6 @@ header {
     cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
 }
 .mystery-card summary::-webkit-details-marker { display: none; }
-
 .icon-plus { color: var(--brand-red); font-size: 1.5rem; transition: transform 0.3s ease; }
 .mystery-card[open] summary .icon-plus { transform: rotate(45deg); color: var(--text-light); } 
 
@@ -146,10 +133,7 @@ header {
     padding: 0 25px 25px; color: var(--text-light); font-size: 1.1rem; line-height: 1.7; text-align: left; 
     animation: fadeInDown 0.5s ease-out;
 }
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* --- FOOTER / LICENCIA --- */
 .footer-legal {
