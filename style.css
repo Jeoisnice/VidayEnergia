@@ -27,8 +27,10 @@ header {
     position: fixed; top: 0; width: 100%; z-index: 1000; 
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-.nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 85px; }
-.logo img { height: 60px; object-fit: contain; }
+/* Aumentamos la altura de la barra a 100px para que respire */
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 100px; }
+/* Aumentamos el tamaño del logo a 85px */
+.logo img { height: 85px; object-fit: contain; }
 .nav-links { display: flex; gap: 35px; list-style: none; font-weight: 600; color: #4b5563; }
 .nav-links a:hover { color: var(--brand-red); }
 
