@@ -10,12 +10,14 @@
 </head>
 <body>
 
-    <div class="scroll-bubble bubble-a"></div>
-    <div class="scroll-bubble bubble-b"></div>
-    <div class="scroll-bubble bubble-c"></div>
-    <div class="scroll-bubble bubble-d"></div>
-    <div class="scroll-bubble bubble-e"></div>
-    <div class="scroll-bubble bubble-f"></div>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+    <div class="bubble bubble-6"></div>
+    <div class="bubble bubble-7"></div>
+    <div class="bubble bubble-8"></div>
 
     <header data-aos="fade-down" data-aos-duration="800">
         <div class="container nav-wrapper">
@@ -37,6 +39,12 @@
             <h1 data-aos="zoom-in" data-aos-duration="1200">Recupera Tu <span>Energía</span></h1>
             <p class="hero-subtitle">El club de bienestar en Panamá donde jóvenes y adultos encuentran el equilibrio perfecto entre movimiento, nutrición y salud duradera.</p>
             <a href="#servicios" class="btn-main" data-aos="fade-up" data-aos-delay="400">Descubre la Experiencia</a>
+        </div>
+        
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.22,189.9,109.74,233.72,101.9,278.43,80.52,321.39,56.44Z" fill="#F8FAFC"></path>
+            </svg>
         </div>
     </section>
 
@@ -102,7 +110,7 @@
     <footer class="footer-legal">
         <div class="container text-center">
             <img src="log.png" alt="Logo Vida Energía" style="height: 50px; margin-bottom: 20px; filter: grayscale(1) brightness(2);">
-            <p>&copy; 2026 Vida Energía Club. Todos los derechos reservados.</p>
+            <p>© 2026 Vida Energía Club. Todos los derechos reservados.</p>
             <p style="font-size: 0.85rem; margin-top: 5px; color: #94A3B8;">Panamá | Salud, Nutrición y Bienestar</p>
         </div>
     </footer>
@@ -110,16 +118,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: false, offset: 100, duration: 800 });
-        
-        window.addEventListener('scroll', () => {
-            let scrollPosition = window.scrollY;
-            document.querySelector('.bubble-a').style.transform = `translateY(-${scrollPosition * 0.5}px)`;
-            document.querySelector('.bubble-b').style.transform = `translateY(-${scrollPosition * 0.3}px)`;
-            document.querySelector('.bubble-c').style.transform = `translateY(-${scrollPosition * 0.7}px)`;
-            document.querySelector('.bubble-d').style.transform = `translateY(-${scrollPosition * 0.4}px)`;
-            document.querySelector('.bubble-e').style.transform = `translateY(-${scrollPosition * 0.8}px)`;
-            document.querySelector('.bubble-f').style.transform = `translateY(-${scrollPosition * 0.2}px)`;
-        });
     </script>
 </body>
 </html>
