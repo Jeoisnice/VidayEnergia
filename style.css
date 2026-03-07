@@ -16,14 +16,12 @@ a { text-decoration: none; transition: 0.3s ease; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
 .section-p { padding: 100px 0; }
 .text-center { text-align: center; }
-.content-layer { position: relative; z-index: 10; } /* Asegura que el contenido quede SOBRE las burbujas */
+.content-layer { position: relative; z-index: 10; }
 
 /* HEADER */
 header { 
-    background: rgba(255, 255, 255, 0.95); 
-    backdrop-filter: blur(15px); 
-    position: fixed; top: 0; width: 100%; z-index: 1000; 
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); 
+    position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 100px; } 
 .logo img { height: 85px; object-fit: contain; } 
@@ -38,16 +36,17 @@ header {
 }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(249, 115, 22, 0.4); }
 
-/* --- BURBUJAS DE ACUARIO (CORREGIDAS) --- */
+/* --- BURBUJAS DE ACUARIO (AHORA SON 6) --- */
 .scroll-bubble {
-    position: fixed; border-radius: 50%; filter: blur(40px); 
-    z-index: 1; /* AHORA ESTÁN ENTRE EL FONDO Y LAS TARJETAS */
-    opacity: 0.7; /* Más visibles */
-    pointer-events: none; transition: transform 0.1s ease-out; 
+    position: fixed; border-radius: 50%; filter: blur(50px); 
+    z-index: 1; opacity: 0.6; pointer-events: none; transition: transform 0.1s ease-out; 
 }
-.bubble-a { width: 400px; height: 400px; background: rgba(6, 182, 212, 0.4); top: 20%; left: -100px; }
-.bubble-b { width: 300px; height: 300px; background: rgba(249, 115, 22, 0.3); top: 60%; right: -50px; }
-.bubble-c { width: 500px; height: 500px; background: rgba(6, 182, 212, 0.3); bottom: -10%; left: 30%; }
+.bubble-a { width: 400px; height: 400px; background: rgba(6, 182, 212, 0.4); top: 10%; left: -100px; }
+.bubble-b { width: 300px; height: 300px; background: rgba(249, 115, 22, 0.3); top: 40%; right: -50px; }
+.bubble-c { width: 500px; height: 500px; background: rgba(6, 182, 212, 0.3); bottom: -10%; left: 20%; }
+.bubble-d { width: 250px; height: 250px; background: rgba(249, 115, 22, 0.4); top: 70%; left: 5%; }
+.bubble-e { width: 350px; height: 350px; background: rgba(6, 182, 212, 0.2); top: -5%; right: 25%; }
+.bubble-f { width: 200px; height: 200px; background: rgba(249, 115, 22, 0.3); bottom: 15%; right: 35%; }
 
 /* --- HERO --- */
 .hero { 
@@ -96,24 +95,35 @@ header {
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: var(--text-light); font-size: 1.05rem; line-height: 1.7; }
 
-/* --- TARJETITAS DESPLEGABLES (ACORDEÓN) --- */
+/* --- TARJETAS DESPLEGABLES MEJORADAS --- */
 .mystery-card {
     background: white; border-radius: 20px; margin-bottom: 20px;
     box-shadow: var(--shadow-card); overflow: hidden;
-    border-left: 5px solid var(--brand-blue); transition: all 0.3s ease;
+    border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.mystery-card[open] { border-left-color: var(--brand-red); }
+/* Efecto de deslizar a la derecha al pasar el mouse */
+.mystery-card:hover { transform: translateX(10px); box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2); }
+/* Cambia el color de la línea y el fondo al abrirse */
+.mystery-card[open] { border-left-color: var(--brand-red); background: #fffcfb; }
 
 .mystery-card summary {
     padding: 25px; font-size: 1.3rem; font-weight: 800; color: var(--dark-bg);
     cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
 }
-.mystery-card summary::-webkit-details-marker { display: none; } /* Oculta la flechita fea por defecto */
+.mystery-card summary::-webkit-details-marker { display: none; }
 
 .icon-plus { color: var(--brand-red); font-size: 1.5rem; transition: transform 0.3s ease; }
-.mystery-card[open] summary .icon-plus { transform: rotate(45deg); color: var(--text-light); } /* Se vuelve una 'X' al abrir */
+.mystery-card[open] summary .icon-plus { transform: rotate(45deg); color: var(--text-light); } 
 
-.card-content { padding: 0 25px 25px; color: var(--text-light); font-size: 1.1rem; line-height: 1.7; text-align: left; }
+/* Animación de fade-in al abrir el texto */
+.card-content { 
+    padding: 0 25px 25px; color: var(--text-light); font-size: 1.1rem; line-height: 1.7; text-align: left; 
+    animation: fadeInDown 0.5s ease-out;
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 /* --- FOOTER / LICENCIA --- */
 .footer-legal {
