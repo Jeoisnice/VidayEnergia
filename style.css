@@ -17,7 +17,7 @@ a { text-decoration: none; transition: 0.3s ease; }
 .section-p { padding: 100px 0; }
 .text-center { text-align: center; }
 
-/* HEADER ATMOSFÉRICO (Estilo Eterial: Difuminado Oscuro) */
+/* HEADER ATMOSFÉRICO */
 header { 
     background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 60%, transparent 100%);
     backdrop-filter: blur(8px);
@@ -25,27 +25,19 @@ header {
 }
 .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 100px; } 
 .logo img { height: 85px; object-fit: contain; filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.3)); } 
-.nav-links { display: flex; gap: 35px; list-style: none; font-weight: 600; color: #cbd5e1; } /* Texto claro */
+.nav-links { display: flex; gap: 35px; list-style: none; font-weight: 600; color: #cbd5e1; } 
 .nav-links a { color: #cbd5e1; transition: color 0.3s; }
 .nav-links a:hover, .active-link { color: var(--brand-red); text-shadow: 0 0 10px rgba(249, 115, 22, 0.4); }
 
-/* =========================================
-   BOTÓN PREMIUM "UBÍCANOS" (Oro/Bronce cepillado)
-   ========================================= */
+/* BOTÓN PREMIUM "UBÍCANOS" */
 .btn-premium-map {
-    background: linear-gradient(135deg, #D4AF37, #AA7C11, #D4AF37); /* Oro Premium */
-    background-size: 200% 200%;
-    color: white; padding: 12px 30px; border-radius: 50px; 
-    font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, #D4AF37, #AA7C11, #D4AF37); background-size: 200% 200%;
+    color: white; padding: 12px 30px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3), inset 0 2px 5px rgba(255,255,255,0.4); 
-    border: 1px solid #ffe58f; transition: all 0.4s ease;
-    animation: gold-shimmer 4s infinite alternate;
+    border: 1px solid #ffe58f; transition: all 0.4s ease; animation: gold-shimmer 4s infinite alternate;
 }
 @keyframes gold-shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-.btn-premium-map:hover { 
-    transform: scale(1.05) translateY(-3px); 
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5), inset 0 2px 5px rgba(255,255,255,0.6); 
-}
+.btn-premium-map:hover { transform: scale(1.05) translateY(-3px); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5), inset 0 2px 5px rgba(255,255,255,0.6); }
 .pin-icon { font-size: 1.3rem; animation: bounce-pin 1.5s infinite ease-in-out; }
 @keyframes bounce-pin { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
@@ -57,54 +49,32 @@ header {
 }
 .btn-main:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5); letter-spacing: 1px; }
 
-/* =========================================
-   SISTEMA DE CAPAS PERFECTO 
-   ========================================= */
-/* Capa 1: Fondo Artístico */
+/* SISTEMA DE CAPAS */
 .blob { position: absolute; border-radius: 50%; filter: blur(80px); z-index: 1; opacity: 0.3; pointer-events: none; }
 .blob-1 { width: 400px; height: 400px; background: var(--brand-blue); top: 120vh; left: -100px; }
 .blob-2 { width: 350px; height: 350px; background: var(--brand-red); top: 180vh; right: -50px; }
 
-/* Capa 2: Imagen Oscura del Hero (Ahora cubre TODA la pantalla) */
 .hero-bg {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;
     background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop'); 
     background-size: cover; background-position: center; background-attachment: fixed;
 }
 
-/* Capa 4: La Ola Divisora */
-.wave-divider { 
-    position: absolute; bottom: -1px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 4; 
-}
+.wave-divider { position: absolute; bottom: -1px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 4; }
 .wave-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 140px; transform: translateY(2px); }
 .wave-solid { fill: var(--bg-soft); }
 
-/* =========================================
-   NUEVO ACUARIO CONTINUO (CAPA 5)
-   ========================================= */
-.bubbles-container {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 5; pointer-events: none; overflow: hidden;
-}
+/* ACUARIO CONTINUO */
+.bubbles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; overflow: hidden; }
 .bubble {
-    position: absolute; bottom: -150px; border-radius: 50%; 
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: absolute; bottom: -150px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.3);
     background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), transparent);
-    box-shadow: inset 0 0 15px rgba(255,255,255,0.15);
-    backdrop-filter: blur(2px); 
-    animation: floatUp linear infinite; /* Animación CSS infinita */
+    box-shadow: inset 0 0 15px rgba(255,255,255,0.15); backdrop-filter: blur(2px); 
+    animation: floatUp linear infinite;
 }
 .bubble.coral { border-color: rgba(249, 115, 22, 0.4); }
+@keyframes floatUp { 0% { transform: translateY(0) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-120vh) translateX(30px); opacity: 0; } }
 
-/* Animación: Suben continuamente por toda la pantalla */
-@keyframes floatUp {
-    0% { transform: translateY(0) translateX(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-120vh) translateX(30px); opacity: 0; }
-}
-
-/* Tiempos y Posiciones Aleatorias para que nunca se acaben */
 .b-1 { width: 90px; height: 90px; left: 10%; animation-duration: 15s; animation-delay: 0s; }
 .b-2 { width: 40px; height: 40px; left: 25%; animation-duration: 12s; animation-delay: 2s; }
 .b-3 { width: 120px; height: 120px; left: 75%; animation-duration: 20s; animation-delay: 5s; }
@@ -118,14 +88,19 @@ header {
 .b-11 { width: 110px; height: 110px; left: 5%; animation-duration: 25s; animation-delay: 13s; }
 .b-12 { width: 45px; height: 45px; left: 80%; animation-duration: 13s; animation-delay: 8s; }
 
-/* Capa 10: Contenido */
 .content-layer { position: relative; z-index: 10; }
 
-/* --- HERO --- */
+/* --- HERO NORMAL (Inicio) --- */
 .hero { 
-    position: relative; min-height: 100vh; overflow: hidden; /* Garantiza pantalla completa */
+    position: relative; min-height: 100vh; overflow: hidden; 
     display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 100px; 
 }
+/* --- NUEVO: HERO INTERNO (Para páginas secundarias) --- */
+.hero-internal {
+    position: relative; min-height: 60vh; overflow: hidden; /* Más corto, soluciona el error visual */
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 100px;
+}
+
 .hero h1 { 
     font-size: 5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 900; 
     background: linear-gradient(-45deg, #FFFFFF, #e2e8f0, var(--brand-blue), var(--brand-red)); 
@@ -139,23 +114,54 @@ header {
     border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); line-height: 1.6;
 }
 
-/* --- SERVICIOS Y TARJETAS --- */
+/* --- TARJETAS DE SERVICIOS NORMALES --- */
 .section-title { font-size: 2.8rem; font-weight: 800; color: #0F172A; margin-bottom: 15px; }
 .section-subtitle { font-size: 1.2rem; color: var(--text-light); margin-bottom: 60px; font-weight: 400; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
 .service-card { 
     background: rgba(255, 255, 255, 0.98); border-radius: 30px; padding: 50px 35px; 
-    box-shadow: var(--shadow-card); position: relative; overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.02); transition: all 0.5s ease;
+    box-shadow: var(--shadow-card); position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.02); transition: all 0.5s ease;
 }
 .service-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(6, 182, 212, 0.15); border-bottom: 4px solid var(--brand-blue); }
-.service-card:hover:nth-child(even) { border-bottom: 4px solid var(--brand-red); box-shadow: 0 25px 50px rgba(249, 115, 22, 0.15); }
 .service-icon { font-size: 4rem; margin-bottom: 25px; transition: transform 0.5s ease; }
 .service-card:hover .service-icon { transform: scale(1.2) rotate(5deg); }
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: var(--text-light); font-size: 1.05rem; line-height: 1.7; }
 
+/* --- DISEÑO PREMIUM DE TESTIMONIOS (NUEVO) --- */
+/* 1. Testimonio CEO (Gigante y con fotos) */
+.testimonial-featured {
+    background: white; border-radius: 30px; padding: 50px; box-shadow: var(--shadow-card);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;
+    align-items: center; border-top: 5px solid var(--brand-red);
+}
+.featured-content h3 { font-size: 2.5rem; color: var(--dark-bg); margin: 15px 0; font-weight: 900;}
+.featured-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; font-style: italic; }
+.badge { background: rgba(249, 115, 22, 0.1); color: var(--brand-red); padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Cajas para las fotos de la CEO */
+.before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.img-placeholder {
+    background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 20px; height: 300px;
+    display: flex; align-items: center; justify-content: center;
+    color: #94a3b8; font-weight: 600; font-size: 1.1rem; text-transform: uppercase; transition: all 0.3s ease;
+}
+.img-placeholder:hover { border-color: var(--brand-blue); background: #e0f2fe; color: var(--brand-blue); }
+
+/* 2. Testimonios Socios (Grid) */
+.testimonial-card { text-align: left; padding: 40px 30px; }
+.img-placeholder-small {
+    background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 50%;
+    width: 90px; height: 90px; margin-bottom: 25px;
+    display: flex; align-items: center; justify-content: center;
+    color: #94a3b8; font-size: 0.8rem; font-weight: 600;
+}
+.testimonial-card h4 { font-size: 1.5rem; color: var(--dark-bg); margin-bottom: 15px; font-weight: 800; }
+.testimonial-card p { font-style: italic; }
+
+
+/* --- TARJETAS DESPLEGABLES --- */
 .mystery-card {
     background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: var(--shadow-card); overflow: hidden;
     border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -181,15 +187,22 @@ header {
 .whatsapp-float svg { width: 34px; height: 34px; fill: white; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin-top: -2px; margin-left: 1px; }
 .whatsapp-float:hover { transform: translateY(-5px) scale(1.15); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6); animation: none; }
 .whatsapp-float:hover svg { transform: scale(1.1) rotate(12deg); }
+@keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
 /* =========================================
-   OPTIMIZACIÓN MÓVIL (BURBUJAS PEQUEÑAS)
+   OPTIMIZACIÓN MÓVIL
    ========================================= */
 @media (max-width: 768px) { 
     .hero h1 { font-size: 3rem; } 
     .nav-links { display: none; } 
     .services-grid { grid-template-columns: 1fr; } 
     
+    /* Arreglo para Testimonios en Móvil */
+    .testimonial-featured { grid-template-columns: 1fr; padding: 30px; }
+    .before-after-grid { grid-template-columns: 1fr; height: auto; }
+    .img-placeholder { height: 250px; }
+
+    /* Burbujas pequeñas en Móvil */
     .bubble { border-width: 1px; }
     .b-1 { width: 50px; height: 50px; }
     .b-2 { width: 25px; height: 25px; }
