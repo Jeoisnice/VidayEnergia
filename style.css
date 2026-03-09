@@ -90,14 +90,14 @@ header {
 
 .content-layer { position: relative; z-index: 10; }
 
-/* --- HERO NORMAL (Inicio) --- */
+/* HERO NORMAL (Inicio) */
 .hero { 
     position: relative; min-height: 100vh; overflow: hidden; 
     display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 100px; 
 }
-/* --- NUEVO: HERO INTERNO (Para páginas secundarias) --- */
+/* HERO INTERNO */
 .hero-internal {
-    position: relative; min-height: 60vh; overflow: hidden; /* Más corto, soluciona el error visual */
+    position: relative; min-height: 60vh; overflow: hidden;
     display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 100px;
 }
 
@@ -114,7 +114,20 @@ header {
     border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); line-height: 1.6;
 }
 
-/* --- TARJETAS DE SERVICIOS NORMALES --- */
+/* NARRATIVA DE "NOSOTROS" (Relleno de texto) */
+.narrative-text {
+    background: rgba(255, 255, 255, 0.9); padding: 50px; border-radius: 30px;
+    box-shadow: var(--shadow-card);
+}
+.narrative-text p {
+    font-size: 1.2rem; color: var(--text-light); line-height: 1.8; margin-bottom: 25px;
+}
+.narrative-text blockquote {
+    font-size: 1.6rem; color: var(--brand-red); font-weight: 800; text-align: center;
+    border-left: 5px solid var(--brand-red); padding-left: 20px; margin: 40px auto; max-width: 80%;
+}
+
+/* TARJETAS DE SERVICIOS NORMALES */
 .section-title { font-size: 2.8rem; font-weight: 800; color: #0F172A; margin-bottom: 15px; }
 .section-subtitle { font-size: 1.2rem; color: var(--text-light); margin-bottom: 60px; font-weight: 400; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
@@ -129,8 +142,8 @@ header {
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: var(--text-light); font-size: 1.05rem; line-height: 1.7; }
 
-/* --- DISEÑO PREMIUM DE TESTIMONIOS (NUEVO) --- */
-/* 1. Testimonio CEO (Gigante y con fotos) */
+/* --- DISEÑO DE TESTIMONIOS (Avanzado) --- */
+/* 1. Testimonio CEO (Gigante) */
 .testimonial-featured {
     background: white; border-radius: 30px; padding: 50px; box-shadow: var(--shadow-card);
     display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;
@@ -140,7 +153,7 @@ header {
 .featured-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; font-style: italic; }
 .badge { background: rgba(249, 115, 22, 0.1); color: var(--brand-red); padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
 
-/* Cajas para las fotos de la CEO */
+/* 2. Cajas de Fotos (CEO y Socios) */
 .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .img-placeholder {
     background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 20px; height: 300px;
@@ -149,19 +162,32 @@ header {
 }
 .img-placeholder:hover { border-color: var(--brand-blue); background: #e0f2fe; color: var(--brand-blue); }
 
-/* 2. Testimonios Socios (Grid) */
-.testimonial-card { text-align: left; padding: 40px 30px; }
+/* 3. Estilo de Testimonios Avanzado (TODOS los socios con Antes/Después) */
+.testimonial-card { text-align: left; padding: 40px 30px; position: relative; display: flex; flex-direction: column; }
+.featured-style { border-top: 4px solid var(--brand-blue); border-radius: 30px; } /* Mismo protagonismo */
+.featured-style:nth-child(even) { border-top-color: var(--brand-red); border-bottom: none !important; border-radius: 30px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.featured-style:nth-child(even):hover { border-bottom-width: 4px; border-bottom-style: solid; border-radius: 30px; } /* Mantenemos el hover */
+
 .img-placeholder-small {
     background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 50%;
     width: 90px; height: 90px; margin-bottom: 25px;
     display: flex; align-items: center; justify-content: center;
-    color: #94a3b8; font-size: 0.8rem; font-weight: 600;
+    color: #94a3b8; font-size: 0.8rem; font-weight: 600; text-align: center;
 }
 .testimonial-card h4 { font-size: 1.5rem; color: var(--dark-bg); margin-bottom: 15px; font-weight: 800; }
-.testimonial-card p { font-style: italic; }
+.testimonial-card .quote { font-style: italic; color: var(--text-light); font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px; flex-grow: 1; }
+
+/* Micro cajitas de fotos para los socios */
+.before-after-grid-small { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: auto; }
+.img-placeholder-nano {
+    background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 12px; height: 100px;
+    display: flex; align-items: center; justify-content: center;
+    color: #94a3b8; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease;
+}
+.img-placeholder-nano:hover { border-color: var(--brand-blue); background: #e0f2fe; color: var(--brand-blue); }
 
 
-/* --- TARJETAS DESPLEGABLES --- */
+/* TARJETAS DESPLEGABLES */
 .mystery-card {
     background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: var(--shadow-card); overflow: hidden;
     border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -175,45 +201,61 @@ header {
 .card-content { padding: 0 25px 25px; color: var(--text-light); font-size: 1.1rem; line-height: 1.7; text-align: left; animation: fadeInDown 0.5s ease-out; }
 @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- FOOTER Y WHATSAPP --- */
+/* FOOTER Y WHATSAPP */
 .footer-legal { background-color: var(--dark-bg); color: white; padding: 40px 20px; position: relative; z-index: 20; }
 
-.whatsapp-float { 
-    position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; 
-    width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-    z-index: 1000; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); animation: pulse-wa 2s infinite;
-}
-.whatsapp-float svg { width: 34px; height: 34px; fill: white; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin-top: -2px; margin-left: 1px; }
-.whatsapp-float:hover { transform: translateY(-5px) scale(1.15); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6); animation: none; }
-.whatsapp-float:hover svg { transform: scale(1.1) rotate(12deg); }
-@keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
 /* =========================================
-   OPTIMIZACIÓN MÓVIL
+   NUEVO: LÓGICA DE WHATSAPP ARREGLADA
    ========================================= */
+.whatsapp-float { 
+    position: fixed; bottom: 30px; right: 30px;
+    background-color: #25D366; /* Verde Vibrante */
+    color: white; 
+    width: 70px; height: 70px; 
+    border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; 
+    z-index: 1000; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    animation: wa-pulse 2s infinite; /* Nuevo pulso suave */
+    border: 3px solid white; /* Borde blanco para resaltar */
+}
+.whatsapp-float svg { 
+    width: 38px; height: 38px; 
+    fill: white; 
+    transition: all 0.4s;
+    margin-top: -3px; /* Pequeño ajuste visual */
+}
+.whatsapp-float:hover { 
+    transform: translateY(-5px) scale(1.1); 
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6); 
+    background-color: #1eb954; /* Un verde un poco más oscuro al hover */
+}
+
+@keyframes wa-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+
+/* OPTIMIZACIÓN MÓVIL */
 @media (max-width: 768px) { 
     .hero h1 { font-size: 3rem; } 
     .nav-links { display: none; } 
     .services-grid { grid-template-columns: 1fr; } 
     
-    /* Arreglo para Testimonios en Móvil */
     .testimonial-featured { grid-template-columns: 1fr; padding: 30px; }
-    .before-after-grid { grid-template-columns: 1fr; height: auto; }
+    .featured-content h3 { font-size: 2rem; }
+    .before-after-grid { grid-template-columns: 1fr; }
     .img-placeholder { height: 250px; }
+    .img-placeholder-small { width: 70px; height: 70px; }
+    .before-after-grid-small { grid-template-columns: 1fr; }
+    .img-placeholder-nano { height: 80px; }
 
-    /* Burbujas pequeñas en Móvil */
+    .narrative-text { padding: 30px; }
+    .narrative-text blockquote { max-width: 100%; font-size: 1.3rem; }
+
     .bubble { border-width: 1px; }
     .b-1 { width: 50px; height: 50px; }
-    .b-2 { width: 25px; height: 25px; }
-    .b-3 { width: 70px; height: 70px; }
-    .b-4 { width: 35px; height: 35px; }
-    .b-5 { width: 15px; height: 15px; }
-    .b-6 { width: 55px; height: 55px; }
-    .b-7 { width: 30px; height: 30px; }
-    .b-8 { width: 45px; height: 45px; }
-    .b-9 { width: 35px; height: 35px; }
-    .b-10 { width: 15px; height: 15px; }
-    .b-11 { width: 60px; height: 60px; }
-    .b-12 { width: 25px; height: 25px; }
 }
