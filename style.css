@@ -95,11 +95,28 @@ header {
     position: relative; min-height: 100vh; overflow: hidden; 
     display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 100px; 
 }
-/* HERO INTERNO */
+
+/* =========================================
+   NUEVO: HERO INTERNO CON FOTOS
+   ========================================= */
 .hero-internal {
-    position: relative; min-height: 60vh; overflow: hidden;
-    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 100px;
+    position: relative; min-height: 75vh; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 120px;
 }
+.hero-internal-content { position: relative; z-index: 10; width: 100%; display: flex; flex-direction: column; align-items: center; }
+.placeholder-hero-img { 
+    width: 100%; max-width: 700px; height: 350px; object-fit: cover;
+    border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+    border: 4px solid rgba(255,255,255,0.15); transition: transform 0.4s ease;
+}
+.placeholder-hero-img:hover { transform: scale(1.02); }
+.hero-internal-title {
+    color: white; font-size: 3rem; margin-top: 30px; font-weight: 900;
+    text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+    background: linear-gradient(-45deg, #FFFFFF, #e2e8f0, var(--brand-blue)); 
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
 
 .hero h1 { 
     font-size: 5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 900; 
@@ -114,14 +131,9 @@ header {
     border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); line-height: 1.6;
 }
 
-/* NARRATIVA DE "NOSOTROS" (Relleno de texto) */
-.narrative-text {
-    background: rgba(255, 255, 255, 0.9); padding: 50px; border-radius: 30px;
-    box-shadow: var(--shadow-card);
-}
-.narrative-text p {
-    font-size: 1.2rem; color: var(--text-light); line-height: 1.8; margin-bottom: 25px;
-}
+/* NARRATIVA DE "NOSOTROS" */
+.narrative-text { background: rgba(255, 255, 255, 0.9); padding: 50px; border-radius: 30px; box-shadow: var(--shadow-card); }
+.narrative-text p { font-size: 1.2rem; color: var(--text-light); line-height: 1.8; margin-bottom: 25px; }
 .narrative-text blockquote {
     font-size: 1.6rem; color: var(--brand-red); font-weight: 800; text-align: center;
     border-left: 5px solid var(--brand-red); padding-left: 20px; margin: 40px auto; max-width: 80%;
@@ -142,8 +154,7 @@ header {
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: var(--text-light); font-size: 1.05rem; line-height: 1.7; }
 
-/* --- DISEÑO DE TESTIMONIOS (Avanzado) --- */
-/* 1. Testimonio CEO (Gigante) */
+/* DISEÑO DE TESTIMONIOS */
 .testimonial-featured {
     background: white; border-radius: 30px; padding: 50px; box-shadow: var(--shadow-card);
     display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;
@@ -153,7 +164,6 @@ header {
 .featured-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; font-style: italic; }
 .badge { background: rgba(249, 115, 22, 0.1); color: var(--brand-red); padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
 
-/* 2. Cajas de Fotos (CEO y Socios) */
 .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .img-placeholder {
     background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 20px; height: 300px;
@@ -162,26 +172,24 @@ header {
 }
 .img-placeholder:hover { border-color: var(--brand-blue); background: #e0f2fe; color: var(--brand-blue); }
 
-/* 3. Estilo de Testimonios Avanzado (TODOS los socios con Antes/Después) */
 .testimonial-card { text-align: left; padding: 40px 30px; position: relative; display: flex; flex-direction: column; }
-.featured-style { border-top: 4px solid var(--brand-blue); border-radius: 30px; } /* Mismo protagonismo */
+.featured-style { border-top: 4px solid var(--brand-blue); border-radius: 30px; } 
 .featured-style:nth-child(even) { border-top-color: var(--brand-red); border-bottom: none !important; border-radius: 30px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-.featured-style:nth-child(even):hover { border-bottom-width: 4px; border-bottom-style: solid; border-radius: 30px; } /* Mantenemos el hover */
+.featured-style:nth-child(even):hover { border-bottom-width: 4px; border-bottom-style: solid; border-radius: 30px; } 
 
 .img-placeholder-small {
     background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 50%;
     width: 90px; height: 90px; margin-bottom: 25px;
     display: flex; align-items: center; justify-content: center;
-    color: #94a3b8; font-size: 0.8rem; font-weight: 600; text-align: center;
+    color: #94a3b8; font-size: 0.8rem; font-weight: 600; text-align: center; overflow: hidden;
 }
 .testimonial-card h4 { font-size: 1.5rem; color: var(--dark-bg); margin-bottom: 15px; font-weight: 800; }
 .testimonial-card .quote { font-style: italic; color: var(--text-light); font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px; flex-grow: 1; }
 
-/* Micro cajitas de fotos para los socios */
 .before-after-grid-small { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: auto; }
 .img-placeholder-nano {
     background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 12px; height: 100px;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
     color: #94a3b8; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease;
 }
 .img-placeholder-nano:hover { border-color: var(--brand-blue); background: #e0f2fe; color: var(--brand-blue); }
@@ -205,31 +213,31 @@ header {
 .footer-legal { background-color: var(--dark-bg); color: white; padding: 40px 20px; position: relative; z-index: 20; }
 
 /* =========================================
-   NUEVO: LÓGICA DE WHATSAPP ARREGLADA
+   NUEVO: WHATSAPP ARREGLADO Y CENTRADO
    ========================================= */
 .whatsapp-float { 
     position: fixed; bottom: 30px; right: 30px;
-    background-color: #25D366; /* Verde Vibrante */
+    background-color: #25D366; 
     color: white; 
     width: 70px; height: 70px; 
     border-radius: 50%; 
-    display: flex; align-items: center; justify-content: center; 
+    display: flex; align-items: center; justify-content: center; /* Esto asegura el centro perfecto */
     z-index: 1000; 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    animation: wa-pulse 2s infinite; /* Nuevo pulso suave */
-    border: 3px solid white; /* Borde blanco para resaltar */
+    animation: wa-pulse 2s infinite; 
+    border: 3px solid white; 
 }
 .whatsapp-float svg { 
-    width: 38px; height: 38px; 
+    width: 36px; height: 36px; /* Tamaño perfecto para el nuevo icono */
     fill: white; 
     transition: all 0.4s;
-    margin-top: -3px; /* Pequeño ajuste visual */
+    /* Se eliminó el margin-top para que flexbox lo centre al 100% */
 }
 .whatsapp-float:hover { 
     transform: translateY(-5px) scale(1.1); 
     box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6); 
-    background-color: #1eb954; /* Un verde un poco más oscuro al hover */
+    background-color: #1eb954; 
 }
 
 @keyframes wa-pulse {
@@ -245,6 +253,10 @@ header {
     .nav-links { display: none; } 
     .services-grid { grid-template-columns: 1fr; } 
     
+    .hero-internal { min-height: auto; padding-bottom: 50px; }
+    .placeholder-hero-img { height: 220px; }
+    .hero-internal-title { font-size: 2.2rem; }
+
     .testimonial-featured { grid-template-columns: 1fr; padding: 30px; }
     .featured-content h3 { font-size: 2rem; }
     .before-after-grid { grid-template-columns: 1fr; }
