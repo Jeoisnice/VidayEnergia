@@ -13,14 +13,20 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
-    <div class="scroll-bubble bubble-a"></div>
-    <div class="scroll-bubble bubble-b coral"></div>
-    <div class="scroll-bubble bubble-c"></div>
-    <div class="scroll-bubble bubble-d"></div>
-    <div class="scroll-bubble bubble-e coral"></div>
-    <div class="scroll-bubble bubble-f"></div>
-    <div class="scroll-bubble bubble-g"></div>
-    <div class="scroll-bubble bubble-h coral"></div>
+    <div class="bubbles-container">
+        <div class="bubble b-1"></div>
+        <div class="bubble b-2 coral"></div>
+        <div class="bubble b-3"></div>
+        <div class="bubble b-4"></div>
+        <div class="bubble b-5 coral"></div>
+        <div class="bubble b-6"></div>
+        <div class="bubble b-7"></div>
+        <div class="bubble b-8 coral"></div>
+        <div class="bubble b-9"></div>
+        <div class="bubble b-10"></div>
+        <div class="bubble b-11"></div>
+        <div class="bubble b-12 coral"></div>
+    </div>
 
     <header data-aos="fade-down" data-aos-duration="800">
         <div class="container nav-wrapper">
@@ -28,12 +34,12 @@
                 <a href="index.html"><img src="log.png" alt="Vida Energía Logo"></a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" style="color: var(--brand-red);">Inicio</a></li>
+                <li><a href="index.html" class="active-link">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="testimonios.html">Testimonios</a></li>
             </ul>
-            <a href="https://www.google.com/maps?q=8.972268871128382,-79.53579805791989" class="btn-map" target="_blank">
+            <a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" class="btn-premium-map" target="_blank">
                 <span class="pin-icon">📍</span> Ubícanos
             </a>
         </div>
@@ -67,13 +73,11 @@
                     <h3>Nutrición Premium</h3>
                     <p>Fórmulas exclusivas para darte vitalidad celular. Ideal para recargar a los más jóvenes y fortalecer el sistema de nuestros adultos.</p>
                 </div>
-
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-icon">🧖‍♀️</div>
                     <h3>Días de Spa & Relax</h3>
                     <p>Un oasis de tranquilidad. Terapias de relajación muscular perfectas para liberar el estrés laboral o calmar molestias articulares.</p>
                 </div>
-
                 <div class="service-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="service-icon">⚡</div>
                     <h3>Activación Física</h3>
@@ -94,18 +98,16 @@
                     <p>Somos una comunidad profesional y muy acogedora. Aquí no hay juicios. Creemos firmemente que nunca es muy temprano ni muy tarde para empezar a cuidar de tu cuerpo de manera inteligente.</p>
                 </div>
             </details>
-
             <details class="mystery-card" data-aos="fade-up" data-aos-delay="300">
                 <summary>La verdad sobre a qué nos dedicamos <span class="icon-plus">+</span></summary>
                 <div class="card-content">
-                    <p>A transformar tu relación con la salud. Olvídate de los gimnasios aburridos o las dietas extremas. Nosotros unimos nutrición de alta calidad, recuperación muscular profunda y actividad física en un solo lugar seguro y divertido.</p>
+                    <p>A transformar tu relación con la salud. Olvídate de los gimnasios aburridos o las dietas extremas. Nosotros unimos nutrición de alta calidad, recuperación muscular profunda y actividad física en un solo lugar.</p>
                 </div>
             </details>
-
             <details class="mystery-card" data-aos="fade-up" data-aos-delay="400">
                 <summary>Tu ruta personalizada (Nuestro Plan) <span class="icon-plus">+</span></summary>
                 <div class="card-content">
-                    <p>Evaluamos tus necesidades actuales y creamos una ruta paso a paso para prevenir el desgaste y asegurar una vida larga y feliz.</p>
+                    <p>Evaluamos tus necesidades actuales y creamos una ruta paso a paso para prevenir el desgaste y asegurar una vida larga, ágil y feliz.</p>
                 </div>
             </details>
         </div>
@@ -126,22 +128,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: false, offset: 100, duration: 800 });
-        window.addEventListener('scroll', () => {
-            let scrollPos = window.scrollY;
-            let isMobile = window.innerWidth <= 768;
-            let speed = isMobile ? 0.2 : 0.8; 
-            const bubbles = document.querySelectorAll('.scroll-bubble');
-            if(bubbles.length > 0) {
-                bubbles[0].style.transform = `translateY(-${scrollPos * 0.9 * speed}px)`;
-                bubbles[1].style.transform = `translateY(-${scrollPos * 0.4 * speed}px)`;
-                bubbles[2].style.transform = `translateY(-${scrollPos * 1.2 * speed}px)`;
-                bubbles[3].style.transform = `translateY(-${scrollPos * 0.6 * speed}px)`;
-                bubbles[4].style.transform = `translateY(-${scrollPos * 1.5 * speed}px)`;
-                bubbles[5].style.transform = `translateY(-${scrollPos * 0.3 * speed}px)`;
-                bubbles[6].style.transform = `translateY(-${scrollPos * 0.8 * speed}px)`;
-                bubbles[7].style.transform = `translateY(-${scrollPos * 1.1 * speed}px)`;
-            }
-        });
+        // ¡El JS de las burbujas fue eliminado! Ahora se mueven solas con CSS fluido e infinito.
     </script>
 </body>
 </html>
