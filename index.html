@@ -33,12 +33,16 @@
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="testimonios.html">Testimonios</a></li>
             </ul>
-            <a href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Panamá" class="btn-primary" target="_blank">Ubícanos (Mapa)</a>
+            <a href="https://www.google.com/maps?q=8.972268871128382,-79.53579805791989" class="btn-map" target="_blank">
+                <span class="pin-icon">📍</span> Ubícanos
+            </a>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-bg"></div> <div class="container" style="position: relative; z-index: 10;">
+        <div class="hero-bg"></div> 
+        
+        <div class="container" style="position: relative; z-index: 10;">
             <h1 data-aos="zoom-in" data-aos-duration="1200">Recupera Tu <span>Energía</span></h1>
             <p class="hero-subtitle">El club de bienestar en Panamá donde jóvenes y adultos encuentran el equilibrio perfecto entre movimiento, nutrición y salud duradera.</p>
             <a href="#servicios" class="btn-main" data-aos="fade-up" data-aos-delay="400">Descubre la Experiencia</a>
@@ -47,7 +51,7 @@
         <div class="wave-divider">
             <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
                 <path fill="rgba(248, 250, 252, 0.4)" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,96C960,96,1056,160,1152,181.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                <path fill="#F8FAFC" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,213.3C672,203,768,149,864,138.7C960,128,1056,160,1152,176C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                <path class="wave-solid" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,213.3C672,203,768,149,864,138.7C960,128,1056,160,1152,176C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
         </div>
     </section>
@@ -101,7 +105,7 @@
             <details class="mystery-card" data-aos="fade-up" data-aos-delay="400">
                 <summary>Tu ruta personalizada (Nuestro Plan) <span class="icon-plus">+</span></summary>
                 <div class="card-content">
-                    <p>Evaluamos tus necesidades actuales (ya sea ganar energía, reducir estrés o proteger tus articulaciones) y creamos una ruta paso a paso para prevenir el desgaste y asegurar una vida larga y feliz.</p>
+                    <p>Evaluamos tus necesidades actuales y creamos una ruta paso a paso para prevenir el desgaste y asegurar una vida larga y feliz.</p>
                 </div>
             </details>
         </div>
@@ -122,13 +126,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: false, offset: 100, duration: 800 });
-        
         window.addEventListener('scroll', () => {
             let scrollPos = window.scrollY;
-            // EL SECRETO MÓVIL: Reducimos la velocidad drásticamente si la pantalla es de celular
             let isMobile = window.innerWidth <= 768;
             let speed = isMobile ? 0.2 : 0.8; 
-
             const bubbles = document.querySelectorAll('.scroll-bubble');
             if(bubbles.length > 0) {
                 bubbles[0].style.transform = `translateY(-${scrollPos * 0.9 * speed}px)`;
