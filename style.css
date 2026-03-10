@@ -85,47 +85,61 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .narrative-text blockquote { font-size: 1.6rem; color: var(--brand-red); font-weight: 800; text-align: center; border-left: 5px solid var(--brand-red); padding-left: 20px; margin: 40px auto; max-width: 80%; }
 
 /* =========================================
-   TESTIMONIOS (REPARACIÓN DE IMÁGENES)
+   NUEVO LAYOUT DE TESTIMONIOS: HORIZONTALES Y AMPLIOS
    ========================================= */
-.testimonial-featured { background: white; border-radius: 30px; padding: 50px; box-shadow: var(--shadow-card); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; align-items: center; border-top: 5px solid var(--brand-red); }
-/* candado para evitar desbordes */
-.featured-content, .before-after-grid { min-width: 0; width: 100%; }
-
-.featured-content h3 { font-size: 2.5rem; color: var(--dark-bg); margin: 15px 0; font-weight: 900;}
-.featured-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; font-style: italic; }
-.badge { background: rgba(249, 115, 22, 0.1); color: var(--brand-red); padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-
-.before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.testimonial-card { text-align: left; padding: 40px 30px; position: relative; display: flex; flex-direction: column; }
-.featured-style { border-top: 4px solid var(--brand-blue); border-radius: 30px; } 
-.featured-style:nth-child(even) { border-top-color: var(--brand-red); border-bottom: none !important; border-radius: 30px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-.featured-style:nth-child(even):hover { border-bottom-width: 4px; border-bottom-style: solid; border-radius: 30px; } 
-
-.testimonial-card h4 { font-size: 1.5rem; color: var(--dark-bg); margin-bottom: 15px; font-weight: 800; margin-top: 0; }
-.testimonial-card .quote { font-style: italic; color: var(--text-light); font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px; flex-grow: 1; }
-
-.before-after-grid-small { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: auto; width: 100%; }
-
-/* EL CANDADO MAESTRO PARA LAS FOTOS */
-.img-content-sync {
-    display: block;
-    width: 100%;
-    max-width: 100%; /* Evita que la foto rompa la cuadrícula */
-    height: 250px; /* Tamaño estandarizado */
-    object-fit: cover; /* Recorta perfectamente sin aplastar la foto */
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+.testimonials-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 60px; /* Mucho espacio de respiro entre tarjetas */
+    max-width: 1000px; /* Tarjetas anchas que aprovechan la pantalla */
+    margin: 0 auto; 
 }
-.img-content-sync:hover { transform: scale(1.03); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4); }
 
-/* Olga es más grande */
-.before-after-grid .img-content-sync { height: 350px; }
+.testimonial-horizontal-card { 
+    background: white; 
+    border-radius: 30px; 
+    padding: 60px; /* Mucho aire interno */
+    box-shadow: var(--shadow-card); 
+    border-top: 5px solid var(--brand-blue); 
+    position: relative;
+}
+.testimonial-horizontal-card:nth-child(even) { border-top-color: var(--brand-red); }
 
-/* Grid de los esposos */
-.couple-grid-fix { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 15px; margin-top: auto; width: 100%; }
-.couple-before-1, .couple-before-2 { height: 200px; width: 100%; object-fit: cover; }
-.couple-after { grid-column: 1 / span 2; height: 280px; width: 100%; object-fit: cover; }
+.testi-text-content { margin-bottom: 30px; }
+.testi-text-content h3 { font-size: 2.2rem; color: var(--dark-bg); margin: 15px 0 10px; font-weight: 900;}
+.testi-text-content .quote { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; font-style: italic; }
+
+.badge { background: rgba(249, 115, 22, 0.1); color: var(--brand-red); padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 10px;}
+
+/* CANDADO Y TAMAÑO DE FOTOS ANCHAS */
+.testi-images-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.photo-wrapper { position: relative; }
+.photo-label { 
+    position: absolute; top: 15px; left: 15px; 
+    background: rgba(255,255,255,0.95); color: var(--dark-bg); 
+    padding: 6px 18px; border-radius: 20px; 
+    font-weight: 800; font-size: 0.85rem; z-index: 2; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); text-transform: uppercase; 
+}
+
+.img-testi {
+    width: 100%; max-width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* LAYOUT ESPECIAL PARA LA PAREJA */
+.couple-text-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.img-testi-wide {
+    width: 100%; max-width: 100%; 
+    height: 450px; /* Foto enorme y espectacular para el Después */
+    object-fit: cover; 
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
 
 /* DESPLEGABLES */
 .mystery-card { background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: var(--shadow-card); overflow: hidden; border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
@@ -146,12 +160,18 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 
 /* FOOTER Y MÓVIL */
 .footer-legal { background-color: var(--dark-bg); color: white; padding: 40px 20px; position: relative; z-index: 20; }
+
 @media (max-width: 768px) { 
     .hero h1 { font-size: 3rem; } .nav-links { display: none; } .services-grid { grid-template-columns: 1fr; } 
     .watermark-section::before { background-size: 100%; opacity: 0.03; }
-    .testimonial-featured { grid-template-columns: 1fr; padding: 30px; } .featured-content h3 { font-size: 2rem; } 
-    .before-after-grid { grid-template-columns: 1fr; } .img-content-sync { height: 250px !important; } 
-    .couple-grid-fix { grid-template-columns: 1fr; grid-template-rows: auto; } .couple-before-1, .couple-before-2, .couple-after { grid-column: auto; height: 250px; } 
+    
+    /* Adaptación Testimonios Móvil */
+    .testimonial-horizontal-card { padding: 30px; }
+    .testi-images-2 { grid-template-columns: 1fr; }
+    .img-testi { height: 250px; }
+    .img-testi-wide { height: 300px; }
+    .couple-text-grid { grid-template-columns: 1fr; gap: 20px; }
+
     .narrative-text { padding: 30px; } .narrative-text blockquote { max-width: 100%; font-size: 1.3rem; } 
     .bubble { border-width: 1px; } .b-1 { width: 50px; height: 50px; } 
     .footer-legal { padding-bottom: 100px; } .whatsapp-float { width: 60px; height: 60px; bottom: 20px; right: 20px; } .whatsapp-float svg { width: 32px; height: 32px; } 
