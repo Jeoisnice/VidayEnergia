@@ -42,7 +42,6 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .bg-nosotros { background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop'); }
 .bg-equipo { background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop'); }
 .bg-testimonios { background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2000&auto=format&fit=crop'); }
-/* NUEVO FONDO: ESTILO DE VIDA */
 .bg-estilo { background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=2000&auto=format&fit=crop'); }
 
 .wave-divider { position: absolute; bottom: -1px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 4; }
@@ -86,33 +85,27 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .narrative-text p { font-size: 1.2rem; color: var(--text-light); line-height: 1.8; margin-bottom: 25px; }
 .narrative-text blockquote { font-size: 1.6rem; color: var(--brand-red); font-weight: 800; text-align: center; border-left: 5px solid var(--brand-red); padding-left: 20px; margin: 40px auto; max-width: 80%; }
 
-/* =========================================
-   NUEVO: DISEÑO DE GALERÍA DE VIDEOS
-   ========================================= */
+/* GALERÍA DE VIDEOS */
 .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-.video-wrapper { 
-    background: white; border-radius: 30px; overflow: hidden; 
-    box-shadow: var(--shadow-card); border-bottom: 5px solid var(--brand-blue);
-    transition: transform 0.4s ease;
-}
+.video-wrapper { background: white; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-card); border-bottom: 5px solid var(--brand-blue); transition: transform 0.4s ease; }
 .video-wrapper:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2); }
 .video-wrapper:nth-child(even) { border-bottom-color: var(--brand-red); }
-.video-wrapper video { 
-    width: 100%; height: 350px; object-fit: cover; display: block; 
-    background-color: #0F172A; /* Fondo negro por si tarda en cargar */
-}
+.video-wrapper video { width: 100%; height: 350px; object-fit: cover; display: block; background-color: #0F172A; }
 .video-info { padding: 30px; text-align: left; }
 .video-info h3 { font-size: 1.5rem; color: var(--dark-bg); margin-bottom: 10px; font-weight: 800;}
 .video-info p { color: var(--text-light); font-size: 1.05rem; line-height: 1.6;}
 
-
-/* TESTIMONIOS Y FOTOS */
+/* =========================================
+   TESTIMONIOS (CON ALINEACIÓN PERFECTA)
+   ========================================= */
 .testimonials-list { display: flex; flex-direction: column; gap: 60px; max-width: 1000px; margin: 0 auto; }
 .testimonial-horizontal-card { background: white; border-radius: 30px; padding: 60px; box-shadow: var(--shadow-card); border-top: 5px solid var(--brand-blue); position: relative; }
 .testimonial-horizontal-card:nth-child(even) { border-top-color: var(--brand-red); }
+
 .testi-text-content { margin-bottom: 30px; }
 .testi-text-content h3 { font-size: 2.2rem; color: var(--dark-bg); margin: 15px 0 10px; font-weight: 900;}
 .testi-text-content .quote { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; font-style: italic; }
+
 .badge { background: rgba(249, 115, 22, 0.1); color: var(--brand-red); padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 10px;}
 
 .testi-images-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -122,7 +115,12 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .img-testi { display: block; width: 100%; max-width: 100%; height: 500px; object-fit: cover; object-position: top center; transition: transform 0.4s ease, filter 0.4s ease; }
 .img-testi:hover { transform: scale(1.03); filter: contrast(1.05); }
 
+/* --- ARREGLO DE ALINEACIÓN DE LA PAREJA --- */
 .couple-text-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+/* Esto obliga a ambas columnas a tener la misma altura y empuja las fotos hacia abajo por igual */
+.couple-text-grid .testi-text-content { display: flex; flex-direction: column; height: 100%; margin-bottom: 0; }
+.couple-text-grid .testi-text-content .quote { flex-grow: 1; margin-bottom: 30px; }
+
 .img-testi-wide { display: block; width: 100%; max-width: 100%; height: 600px; object-fit: cover; object-position: top center; transition: transform 0.4s ease, filter 0.4s ease; }
 .img-testi-wide:hover { transform: scale(1.03); filter: contrast(1.05); }
 
@@ -149,7 +147,6 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 @media (max-width: 768px) { 
     .hero h1 { font-size: 3rem; } .nav-links { display: none; } .services-grid { grid-template-columns: 1fr; } 
     
-    /* Videos y Watermarks en Móvil */
     .video-grid { grid-template-columns: 1fr; }
     .video-wrapper video { height: 250px; }
     .watermark-section::before { background-size: 100%; opacity: 0.03; }
@@ -158,6 +155,8 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
     .testi-images-2 { grid-template-columns: 1fr; }
     .img-testi { height: 450px; } 
     .img-testi-wide { height: 450px; }
+    
+    /* En móvil se quita el grid lado a lado para la pareja */
     .couple-text-grid { grid-template-columns: 1fr; gap: 40px; }
 
     .narrative-text { padding: 30px; } .narrative-text blockquote { max-width: 100%; font-size: 1.3rem; } 
