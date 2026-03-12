@@ -35,7 +35,7 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .btn-main { padding: 18px 50px; background: linear-gradient(45deg, var(--brand-red), var(--brand-blue)); border: none; border-radius: 50px; color: white; font-size: 1.2rem; font-weight: 800; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.5); display: inline-block; }
 .btn-main:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5); letter-spacing: 1px; }
 
-/* HERO FULL SCREEN (100VH) */
+/* HERO FULL SCREEN (TODAS LAS PÁGINAS A 100VH) */
 .hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; padding-top: 100px; }
 .hero-bg { position: absolute; top: -15px; left: -15px; width: calc(100% + 30px); height: calc(100% + 30px); z-index: 2; background-size: cover; background-position: center; background-attachment: fixed; filter: blur(4px); }
 .bg-index { background-image: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2000&auto=format&fit=crop'); }
@@ -79,19 +79,25 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1E293B; font-weight: 800; }
 .service-card p { color: var(--text-light); font-size: 1.05rem; line-height: 1.7; }
 
-/* TEXTOS */
+/* TEXTOS NARRATIVOS */
 .narrative-text { background: rgba(255, 255, 255, 0.9); padding: 50px; border-radius: 30px; box-shadow: var(--shadow-card); }
 .narrative-text p { font-size: 1.2rem; color: var(--text-light); line-height: 1.8; margin-bottom: 25px; }
 .narrative-text blockquote { font-size: 1.6rem; color: var(--brand-red); font-weight: 800; text-align: center; border-left: 5px solid var(--brand-red); padding-left: 20px; margin: 40px auto; max-width: 80%; }
 
 /* =========================================
-   TESTIMONIOS (CANDADO DE ROSTROS Y PANORÁMICA)
+   NUEVO: LAYOUT DE TESTIMONIOS MÁS LIMPIO Y ESTÁTICO
    ========================================= */
-.testimonials-list { display: flex; flex-direction: column; gap: 60px; max-width: 1000px; margin: 0 auto; }
+.testimonials-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 60px; /* Separación amplia para respirar */
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
 
 .testimonial-horizontal-card { 
-    background: white; border-radius: 30px; padding: 60px; box-shadow: var(--shadow-card); 
-    border-top: 5px solid var(--brand-blue); position: relative;
+    background: white; border-radius: 30px; padding: 60px; 
+    box-shadow: var(--shadow-card); border-top: 5px solid var(--brand-blue); position: relative;
 }
 .testimonial-horizontal-card:nth-child(even) { border-top-color: var(--brand-red); }
 
@@ -111,32 +117,31 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
     box-shadow: 0 4px 10px rgba(0,0,0,0.15); text-transform: uppercase; 
 }
 
-/* EL TRUCO MAGISTRAL: OBJECT-POSITION: TOP CENTER */
-/* Esto asegura que las cabezas NUNCA se corten */
+/* FOTOS ESTÁTICAS Y MÁS ALTAS PARA VER EL CUERPO */
 .img-testi {
-    display: block; width: 100%; max-width: 100%; height: 350px; 
+    display: block; width: 100%; max-width: 100%; 
+    height: 500px; /* ¡Fotos más altas! Permite ver más del cuerpo y la cara al mismo tiempo */
     object-fit: cover; 
-    object-position: top center; /* ¡Magia! Ancla la foto desde arriba */
-    transition: object-position 3s ease, transform 0.5s ease; /* Paneo suave */
+    object-position: top center; /* Fijo en la cara, sin moverse hacia abajo */
+    transition: transform 0.4s ease, filter 0.4s ease; /* Solo Zoom y brillo */
 }
-/* Al pasar el ratón, baja un poco para mostrar el resto del cuerpo */
 .img-testi:hover {
-    object-position: bottom center;
-    transform: scale(1.02);
+    transform: scale(1.03); /* Zoom in sutil y limpio */
+    filter: contrast(1.05);
 }
 
 .couple-text-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .img-testi-wide {
-    display: block; width: 100%; max-width: 100%; height: 450px; 
+    display: block; width: 100%; max-width: 100%; 
+    height: 600px; /* Panorámica enorme para la pareja */
     object-fit: cover; 
-    object-position: top center; /* Evita que la pareja quede decapitada */
-    transition: object-position 3s ease, transform 0.5s ease;
+    object-position: top center; 
+    transition: transform 0.4s ease, filter 0.4s ease;
 }
 .img-testi-wide:hover {
-    object-position: center center;
-    transform: scale(1.02);
+    transform: scale(1.03);
+    filter: contrast(1.05);
 }
-
 
 /* DESPLEGABLES */
 .mystery-card { background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: var(--shadow-card); overflow: hidden; border-left: 5px solid var(--brand-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
@@ -164,8 +169,11 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
     
     .testimonial-horizontal-card { padding: 30px; }
     .testi-images-2 { grid-template-columns: 1fr; }
-    .img-testi { height: 350px; } /* Mantiene buena altura en móvil para ver la cara */
-    .img-testi-wide { height: 350px; }
+    
+    /* En móvil las fotos siguen siendo altas para que no se recorten las caras */
+    .img-testi { height: 450px; } 
+    .img-testi-wide { height: 450px; }
+    
     .couple-text-grid { grid-template-columns: 1fr; gap: 40px; }
 
     .narrative-text { padding: 30px; } .narrative-text blockquote { max-width: 100%; font-size: 1.3rem; } 
