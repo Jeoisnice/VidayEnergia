@@ -20,14 +20,28 @@
     <header data-aos="fade-down" data-aos-duration="800">
         <div class="container nav-wrapper">
             <div class="logo"><a href="index.html"><img src="log.png" alt="Vida Energía Logo"></a></div>
-            <ul class="nav-links">
+            
+            <div class="hamburger-icon" id="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html" class="active-link">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="equipo.html">Nuestro Equipo</a></li>
                 <li><a href="estilo-vida.html">Estilo de Vida</a></li>
                 <li><a href="testimonios.html">Testimonios</a></li>
+                
+                <li class="ubicanos-mobile-item">
+                    <a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" class="btn-premium-map" target="_blank"><span class="pin-icon">📍</span> Ubícanos</a>
+                </li>
             </ul>
-            <a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" class="btn-premium-map" target="_blank"><span class="pin-icon">📍</span> Ubícanos</a>
+            
+            <div class="ubicanos-desktop-wrapper">
+                <a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" class="btn-premium-map" target="_blank"><span class="pin-icon">📍</span> Ubícanos</a>
+            </div>
         </div>
     </header>
 
@@ -36,7 +50,7 @@
         <div class="container" style="position: relative; z-index: 10;">
             <h1 data-aos="zoom-in" data-aos-duration="1200">Recupera Tu <span>Energía</span></h1>
             <p class="hero-subtitle">Más de 21 años transformando vidas. Descubre tu equilibrio perfecto con nuestra nutrición celular integral, sin restricciones y llena de vida.</p>
-            <a href="equipo.html" class="btn-main" data-aos="fade-up" data-aos-delay="400">Descubre el Plan de 7 Días</a>
+            <a href="equipo.html#plan-7-dias" class="btn-main" data-aos="fade-up" data-aos-delay="400">Descubre el Plan de 7 Días</a>
         </div>
         <div class="wave-divider">
             <svg viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="rgba(248, 250, 252, 0.4)" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,96C960,96,1056,160,1152,181.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path><path class="wave-solid" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,213.3C672,203,768,149,864,138.7C960,128,1056,160,1152,176C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
@@ -67,8 +81,8 @@
                     <p>Viajes, fiestas, spa faciales y la energía vital que necesitas para disfrutar al máximo.</p>
                     <a href="estilo-vida.html">Ver Aventuras →</a>
                 </div>
-            </div>
-
+            </div> 
+            
             <div class="voces-section" style="margin-top: 80px;">
                 <h2 data-aos="fade-up" class="section-title">Voces que Inspiran</h2>
                 <p data-aos="fade-up" class="section-subtitle" style="margin-bottom: 40px;">Historias reales de transformación en nuestro club.</p>
@@ -124,7 +138,7 @@
             <div class="footer-grid">
                 <div class="footer-brand"><img src="log.png" alt="Vida Energía Logo" class="footer-logo"><p>Más de 21 años transformando vidas a través de la nutrición celular, el desarrollo integral y un bienestar real para tu familia.</p></div>
                 <div class="footer-links"><h4>Enlaces Rápidos</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nuestra Historia</a></li><li><a href="equipo.html">Plan de 7 Días</a></li><li><a href="estilo-vida.html">Estilo de Vida</a></li><li><a href="testimonios.html">Testimonios</a></li></ul></div>
-                <div class="footer-contact"><h4>Contacto</h4><p>📍 Ave. Perú, Hotel Venecia</p><p>📞 <a href="https://wa.me/50769932661" target="_blank">+507 6993-2661</a></p><p>✉️ <a href="mailto:vidayenergiapty@gmail.com">vidayenergiapty@gmail.com</a></p><p><a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" target="_blank">Ave. Perú, Hotel Venecia, Club Vida y Energía</a></p></div>
+                <div class="footer-contact"><h4>Contacto</h4><p>📍 Ciudad de Panamá, Panamá</p><p>📞 <a href="https://wa.me/50769932661" target="_blank">+507 6993-2661</a></p><p>✉️ Club Vida y Energía</p></div>
                 <div class="footer-socials"><h4>Síguenos</h4>
                     <div class="social-container-mini">
                         <a href="https://www.facebook.com/profile.php?id=61579471792178" target="_blank" class="social-btn fb"><svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
@@ -137,5 +151,16 @@
         </div>
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script> AOS.init({ once: false, offset: 50, duration: 600, easing: 'ease-out-cubic' }); </script>
+    
+    <script>
+        const hamburger = document.getElementById('hamburger-icon');
+        const navLinks = document.getElementById('nav-links');
+        if(hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('toggle');
+            });
+        }
+    </script>
 </body>
 </html>
