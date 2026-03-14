@@ -16,17 +16,31 @@
         <div class="bubble b-5 coral"></div><div class="bubble b-6"></div><div class="bubble b-7"></div><div class="bubble b-8 coral"></div>
     </div>
 
-    <header>
+    <header data-aos="fade-down" data-aos-duration="800">
         <div class="container nav-wrapper">
             <div class="logo"><a href="index.html"><img src="log.png" alt="Vida Energía Logo"></a></div>
-            <ul class="nav-links">
+            
+            <div class="hamburger-icon" id="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="equipo.html" class="active-link">Nuestro Equipo</a></li>
                 <li><a href="estilo-vida.html">Estilo de Vida</a></li>
                 <li><a href="testimonios.html">Testimonios</a></li>
+                
+                <li class="ubicanos-mobile-item">
+                    <a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" class="btn-premium-map" target="_blank"><span class="pin-icon">📍</span> Ubícanos</a>
+                </li>
             </ul>
-            <a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" class="btn-premium-map" target="_blank"><span class="pin-icon">📍</span> Ubícanos</a>
+            
+            <div class="ubicanos-desktop-wrapper">
+                <a href="https://www.google.com/maps/search/?api=1&query=8.972268871128382,-79.53579805791989" class="btn-premium-map" target="_blank"><span class="pin-icon">📍</span> Ubícanos</a>
+            </div>
         </div>
     </header>
 
@@ -79,8 +93,8 @@
                             <video controls poster="cel/cel1.jpg"><source src="cel/celv.mp4" type="video/mp4">Tu navegador no soporta el formato de video.</video>
                         </div>
                     </div>
-                    <button class="carousel-control prev" onclick="moveSlide(-1, 'carousel-cel')">&#10094;</button>
-                    <button class="carousel-control next" onclick="moveSlide(1, 'carousel-cel')">&#10095;</button>
+                    <button class="carousel-control prev" onclick="moveSlide(-1, 'carousel-cel')">❮</button>
+                    <button class="carousel-control next" onclick="moveSlide(1, 'carousel-cel')">❯</button>
                 </div>
 
                 <div id="carousel-spa" class="carousel">
@@ -93,8 +107,8 @@
                             <video controls poster="spa/spa1.jpg"><source src="spa/spav.mp4" type="video/mp4">Tu navegador no soporta el formato de video.</video>
                         </div>
                     </div>
-                    <button class="carousel-control prev" onclick="moveSlide(-1, 'carousel-spa')">&#10094;</button>
-                    <button class="carousel-control next" onclick="moveSlide(1, 'carousel-spa')">&#10095;</button>
+                    <button class="carousel-control prev" onclick="moveSlide(-1, 'carousel-spa')">❮</button>
+                    <button class="carousel-control next" onclick="moveSlide(1, 'carousel-spa')">❯</button>
                 </div>
             </div>
 
@@ -124,6 +138,17 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script> AOS.init({ once: false, offset: 50, duration: 600, easing: 'ease-out-cubic' }); </script>
     
+    <script>
+        const hamburger = document.getElementById('hamburger-icon');
+        const navLinks = document.getElementById('nav-links');
+        if(hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('toggle');
+            });
+        }
+    </script>
+
     <script>
         let slideIndices = {};
         function initCarousel(carouselId) { slideIndices[carouselId] = 0; showSlide(slideIndices[carouselId], carouselId); }
