@@ -56,7 +56,6 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .b-1 { width: 90px; height: 90px; left: 10%; animation-duration: 15s; } .b-2 { width: 40px; height: 40px; left: 25%; animation-duration: 12s; animation-delay: 2s; } .b-3 { width: 120px; height: 120px; left: 75%; animation-duration: 20s; animation-delay: 5s; } .b-4 { width: 60px; height: 60px; left: 85%; animation-duration: 18s; animation-delay: 1s; } .b-5 { width: 30px; height: 30px; left: 45%; animation-duration: 10s; animation-delay: 7s; } .b-6 { width: 100px; height: 100px; left: 15%; animation-duration: 22s; animation-delay: 4s; } .b-7 { width: 50px; height: 50px; left: 60%; animation-duration: 14s; animation-delay: 9s; } .b-8 { width: 80px; height: 80px; left: 90%; animation-duration: 19s; animation-delay: 3s; } .b-9 { width: 70px; height: 70px; left: 35%; animation-duration: 16s; animation-delay: 11s; } .b-10 { width: 25px; height: 25px; left: 55%; animation-duration: 11s; animation-delay: 6s; } .b-11 { width: 110px; height: 110px; left: 5%; animation-duration: 25s; animation-delay: 13s; } .b-12 { width: 45px; height: 45px; left: 80%; animation-duration: 13s; animation-delay: 8s; }
 
 .content-layer { position: relative; z-index: 10; }
-
 .hero h1 { font-size: 5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 900; background: linear-gradient(-45deg, #FFFFFF, #e2e8f0, var(--brand-blue), var(--brand-red)); background-size: 300% 300%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer-text 6s ease infinite; }
 @keyframes shimmer-text { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .hero-subtitle { font-size: 1.3rem; color: #f8fafc; margin-bottom: 45px; max-width: 750px; margin-left: auto; margin-right: auto; background: rgba(255,255,255,0.08); padding: 20px 35px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); line-height: 1.6; }
@@ -69,24 +68,13 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .watermark-equipo::before { background-image: url('Img/fondo-equipo.png'); }
 .watermark-section .container { position: relative; z-index: 15; }
 
-/* =========================================
-   NUEVO: TARJETA DEL PLAN DE 7 DÍAS
-   ========================================= */
-.plan-7dias-card { 
-    background: white; border-radius: 30px; padding: 50px; 
-    box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15); 
-    border-left: 8px solid var(--brand-blue); margin-bottom: 80px; 
-    position: relative; text-align: left;
-}
+/* PLAN 7 DÍAS */
+.plan-7dias-card { background: white; border-radius: 30px; padding: 50px; box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15); border-left: 8px solid var(--brand-blue); margin-bottom: 80px; position: relative; text-align: left; }
 .plan-7dias-card h2 { font-size: 2.5rem; color: var(--dark-bg); margin: 15px 0 25px; font-weight: 900; }
 .plan-7dias-card p { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; margin-bottom: 20px; }
 .plan-7dias-card p strong { color: var(--brand-red); font-weight: 800; }
 .plan-benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0; }
-.benefit-item { 
-    background: var(--bg-soft); padding: 20px; border-radius: 15px; 
-    border: 1px solid #e2e8f0; font-weight: 700; color: var(--dark-bg);
-    display: flex; align-items: center; gap: 10px; font-size: 1.05rem;
-}
+.benefit-item { background: var(--bg-soft); padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0; font-weight: 700; color: var(--dark-bg); display: flex; align-items: center; gap: 10px; font-size: 1.05rem; }
 
 /* SERVICIOS */
 .section-title { font-size: 2.8rem; font-weight: 800; color: #0F172A; margin-bottom: 15px; }
@@ -149,22 +137,37 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* =========================================
-   NUEVO: REDES SOCIALES INTERACTIVAS FOOTER
+   NUEVO FOOTER CORPORATIVO TIPO FAT-FOOTER
    ========================================= */
-.footer-legal { background-color: var(--dark-bg); color: white; padding: 60px 20px 40px; position: relative; z-index: 20; }
-.social-container { display: flex; justify-content: center; gap: 20px; margin: 30px 0; }
-.social-btn { 
-    width: 55px; height: 55px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    background: transparent; color: #cbd5e1;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none;
-}
-.social-btn svg { width: 24px; height: 24px; fill: currentColor; transition: all 0.4s ease; }
+.footer-premium { background-color: var(--dark-bg); color: #cbd5e1; padding: 80px 20px 30px; position: relative; z-index: 20; font-family: 'Outfit', sans-serif; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; text-align: left; }
+.footer-logo { height: 60px; filter: grayscale(1) brightness(2); margin-bottom: 20px; display: block; }
+.footer-brand p { font-size: 1rem; line-height: 1.7; color: #94a3b8; }
+.footer-premium h4 { color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 25px; position: relative; display: inline-block; }
+.footer-premium h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 3px; background: var(--brand-red); border-radius: 5px; }
 
-/* El efecto luminoso al pasar el mouse (hover) */
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 15px; }
+.footer-links a { color: #94a3b8; transition: all 0.3s ease; font-size: 1rem; display: inline-block; }
+.footer-links a:hover { color: var(--brand-blue); transform: translateX(5px); }
+
+.footer-contact p { margin-bottom: 15px; font-size: 1rem; color: #94a3b8; display: flex; align-items: center; gap: 10px; }
+.footer-contact a { color: #94a3b8; transition: 0.3s; }
+.footer-contact a:hover { color: var(--brand-blue); }
+
+.social-container-mini { display: flex; gap: 15px; }
+.social-btn { width: 45px; height: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; background: transparent; color: #cbd5e1; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; }
+.social-btn svg { width: 20px; height: 20px; fill: currentColor; transition: all 0.4s ease; }
+/* Efecto de Redes Sociales con color de marca */
 .social-btn.fb:hover { background: #1877F2; color: white; border-color: #1877F2; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(24, 119, 242, 0.5); }
 .social-btn.ig:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border-color: transparent; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(220, 39, 67, 0.5); }
 .social-btn.tt:hover { background: white; color: black; border-color: white; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 255, 255, 0.6); }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-bottom p { color: #64748b; font-size: 0.9rem; }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { color: #64748b; font-size: 0.9rem; transition: 0.3s; }
+.footer-bottom-links a:hover { color: white; }
 
 /* WHATSAPP PREMIUM 3D */
 .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(145deg, #25D366, #128C7E); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: none; box-shadow: 0 10px 25px rgba(18, 140, 126, 0.5), inset 0 2px 8px rgba(255, 255, 255, 0.6); animation: wa-glow 3s infinite alternate; }
@@ -177,10 +180,18 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
     .hero h1 { font-size: 3rem; } .nav-links { display: none; } .services-grid { grid-template-columns: 1fr; } 
     .watermark-section::before { background-size: 100%; opacity: 0.03; }
     .video-grid { grid-template-columns: 1fr; } .video-wrapper video, .video-wrapper iframe { height: 250px; }
-    
     .plan-7dias-card { padding: 30px; } .plan-7dias-card h2 { font-size: 2rem; }
     .testimonial-horizontal-card { padding: 30px; } .testi-images-2 { grid-template-columns: 1fr; } .img-testi { height: 450px; } .img-testi-wide { height: 450px; } .couple-text-grid { grid-template-columns: 1fr; gap: 40px; }
     .narrative-text { padding: 30px; } .narrative-text blockquote { max-width: 100%; font-size: 1.3rem; } 
     .bubble { border-width: 1px; } .b-1 { width: 50px; height: 50px; } 
-    .footer-legal { padding-bottom: 100px; } .whatsapp-float { width: 60px; height: 60px; bottom: 20px; right: 20px; } .whatsapp-float svg { width: 32px; height: 32px; } 
+    
+    /* Footer en móvil */
+    .footer-premium { padding-bottom: 100px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+    .footer-premium h4::after { left: 50%; transform: translateX(-50%); }
+    .footer-contact p { justify-content: center; }
+    .social-container-mini { justify-content: center; }
+    .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
+    .footer-bottom-links { justify-content: center; flex-wrap: wrap; }
+    .whatsapp-float { width: 60px; height: 60px; bottom: 20px; right: 20px; } .whatsapp-float svg { width: 32px; height: 32px; } 
 }
