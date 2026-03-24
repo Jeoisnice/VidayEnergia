@@ -49,7 +49,7 @@ header { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95) 0%, rgba(
 .hero-bg { position: absolute; top: -15px; left: -15px; width: calc(100% + 30px); height: calc(100% + 30px); z-index: 2; background-size: cover; background-position: center; background-attachment: fixed; filter: blur(4px); }
 .bg-index { background-image: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2000&auto=format&fit=crop'); }
 .bg-nosotros { background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop'); }
-.bg-equipo { background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop'); }
+.bg-equipo { background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('cel/equipo.JPG'); }
 .bg-testimonios { background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2000&auto=format&fit=crop'); }
 .bg-estilo { background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=2000&auto=format&fit=crop'); }
 
